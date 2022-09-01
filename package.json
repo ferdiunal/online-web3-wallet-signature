@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@walletconnect/ethereum-provider": "^1.8.0",
+    "@walletconnect/jsonrpc-provider": "^1.0.5",
     "ethers": "^5.7.0",
+    "events": "^3.3.0",
     "rollup-plugin-polyfill-node": "^0.10.2",
     "vue": "^3.2.37",
     "vue-toastification": "^2.0.0-rc.5",
