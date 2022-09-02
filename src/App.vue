@@ -97,6 +97,10 @@ onMounted(connect)
     <button :disabled="!message" v-if="walletConnect" @click="onSignature" type="button" class="inline-flex items-center w-1/2  justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
         Siging
     </button>
-  
+
+    <button v-else @click="connect" type="button" class="inline-flex items-center w-1/2  justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          Connect
+      </button>
   </div>
+
 </template>
