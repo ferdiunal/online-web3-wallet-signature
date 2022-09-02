@@ -9,7 +9,8 @@ const app = createApp(App)
 
 
 app.use(Toast, {
-    timeout: false
+    timeout: 1000,
+    hideProgressBar: true
 });
 
 app.mount('#app')

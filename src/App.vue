@@ -1,4 +1,5 @@
 <script setup>
+import GithubButton from 'vue-github-button'
 import { onMounted, ref, nextTick } from 'vue';
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
@@ -42,6 +43,7 @@ const connect = async () => {
     setTimeout(() => {
       document.getElementById("message").focus()
     }, 100)
+    toast.clear()
     toast.success("Good Luck ✌️")
   } catch (e) {
     console.log(e);
@@ -57,7 +59,7 @@ const onSignature = async () => {
     signature.value = await signiner.value.signMessage(
       message.value
     )
-    
+    toast.clear()
     toast.success("Signing successful, click to copy result 👊")
 
   } catch(e) {
@@ -69,8 +71,9 @@ const onCopy = async () => {
   if(!signature.value) return;
 
   await navigator.clipboard.writeText(signature.value)
-    
+  toast.clear()
   toast.success("Result successfully copied 👊")
+  document.getElementById("message").focus()
 };
 
 onMounted(connect)
@@ -79,6 +82,11 @@ onMounted(connect)
 
 <template>
   <div class="max-w-7xl mx-auto min-h-screen flex flex-col items-center gap-y-4 justify-center">
+    <div class="flex flex-row items-end gap-x-4 justify-center">
+      <h2 class="text-2xl">Online Web3 Wallet Signature Tool with Ethers JS</h2>
+      <!-- Place this tag where you want the button to render. -->
+      <github-button href="https://github.com/ferdiunal/online-web3-wallet-signature" data-show-count="true" aria-label="Star ferdiunal/online-web3-wallet-signature on GitHub">Star</github-button>
+    </div>
     <div class="grid grid-cols-2 gap-x-2 w-full" v-if="walletConnect">
 
     <textarea id="message" v-model="message" class="h-96 resize-none" placeholder="Message"></textarea>
